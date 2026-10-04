@@ -1,0 +1,1033 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    color: #111111;
+    background-color: #FAFAF9;
+    background-image: 
+      radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.05), transparent 35%),
+      radial-gradient(circle at 85% 20%, rgba(244, 63, 94, 0.04), transparent 32%),
+      radial-gradient(circle at 50% 90%, rgba(234, 179, 8, 0.04), transparent 40%),
+      linear-gradient(180deg, #FAFAF9 0%, #F5F3FF 50%, #FFF7ED 100%);
+    background-attachment: fixed;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .dark body {
+    color: #FFFFFF;
+    background-color: #050505;
+    background-image: 
+      radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.18), transparent 32%),
+      radial-gradient(circle at 85% 15%, rgba(220, 38, 38, 0.14), transparent 28%),
+      radial-gradient(circle at 50% 100%, rgba(234, 179, 8, 0.10), transparent 32%),
+      linear-gradient(180deg, #050505 0%, #090611 40%, #12091F 75%, #050505 100%);
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Sora', sans-serif;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+}
+
+/* ==========================================================================
+   Luxury Travel-Tech Signature Gradients
+   ========================================================================== */
+.bg-luxury-signature {
+  background: linear-gradient(135deg, #7C3AED 0%, #C026D3 28%, #DC2626 58%, #F59E0B 100%);
+}
+
+.bg-luxury-secondary {
+  background: linear-gradient(135deg, #050505 0%, #170A2B 50%, #350A1E 100%);
+}
+
+.bg-luxury-gold {
+  background: linear-gradient(135deg, #FDE68A 0%, #FACC15 50%, #F59E0B 100%);
+}
+
+.bg-luxury-red {
+  background: linear-gradient(135deg, #991B1B 0%, #EF4444 50%, #F97316 100%);
+}
+
+.bg-luxury-violet {
+  background: linear-gradient(135deg, #6D28D9 0%, #7C3AED 50%, #A855F7 100%);
+}
+
+/* Hero Section Ambient Backgrounds */
+.luxury-hero-bg-light {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.12), transparent 35%),
+    radial-gradient(circle at 85% 20%, rgba(220, 38, 38, 0.09), transparent 30%),
+    radial-gradient(circle at 50% 85%, rgba(245, 197, 66, 0.08), transparent 40%),
+    linear-gradient(135deg, #FAFAF9, #F5F3FF, #FFF7ED);
+}
+
+.luxury-hero-bg-dark {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.18), transparent 35%),
+    radial-gradient(circle at 85% 15%, rgba(220, 38, 38, 0.14), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(234, 179, 8, 0.10), transparent 40%),
+    linear-gradient(180deg, #050505 0%, #090611 50%, #12091F 100%);
+}
+
+/* ==========================================================================
+   Luxury Gradient CTAs & Buttons
+   ========================================================================== */
+.btn-luxury-primary {
+  background: linear-gradient(135deg, #7C3AED 0%, #C026D3 28%, #DC2626 58%, #F59E0B 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -5px rgba(245, 158, 11, 0.45);
+  filter: brightness(1.08);
+}
+
+.btn-luxury-secondary {
+  background: rgba(23, 10, 43, 0.85);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #FFFFFF;
+  font-weight: 600;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.25s ease;
+}
+
+.btn-luxury-secondary:hover {
+  background: rgba(35, 15, 65, 0.95);
+  border-color: rgba(168, 85, 247, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-luxury-premium,
+.btn-luxury-gold {
+  background: linear-gradient(135deg, #FDE68A 0%, #FACC15 50%, #F59E0B 100%);
+  color: #171717;
+  font-weight: 800;
+  box-shadow: 0 10px 25px -5px rgba(234, 179, 8, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-premium:hover,
+.btn-luxury-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(234, 179, 8, 0.45);
+  filter: brightness(1.06);
+}
+
+.btn-luxury-ai {
+  background: linear-gradient(135deg, #7C3AED 0%, #C026D3 35%, #F43F5E 70%, #FACC15 100%);
+  color: #FFFFFF;
+  font-weight: 800;
+  box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-ai:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -5px rgba(244, 63, 94, 0.45);
+  filter: brightness(1.08);
+}
+
+/* ==========================================================================
+   Gradient Text Utilities
+   ========================================================================== */
+.hero-gradient-text {
+  background: linear-gradient(90deg, #FFFFFF 0%, #A78BFA 35%, #F43F5E 70%, #FACC15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-light {
+  background: linear-gradient(135deg, #6D28D9 0%, #BE123C 50%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-dark {
+  background: linear-gradient(135deg, #A855F7 0%, #F43F5E 50%, #FACC15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-signature {
+  background: linear-gradient(135deg, #7C3AED 0%, #C026D3 28%, #DC2626 58%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #FFF1A8 0%, #FACC15 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-violet {
+  background: linear-gradient(135deg, #C084FC 0%, #A855F7 50%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-ai {
+  background: linear-gradient(135deg, #A855F7 0%, #F43F5E 50%, #FACC15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   Glassmorphism & Surface Tokens
+   ========================================================================== */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass-panel {
+  background: rgba(14, 8, 26, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.dark .glass-card {
+  background: rgba(18, 9, 31, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-nav {
+  background: rgba(5, 5, 5, 0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   Dark Glass Navigation Control Bar & High-Contrast Navigation Pills
+   ========================================================================== */
+.dark-glass-nav-bar {
+  background: rgba(3, 5, 15, 0.72);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  border-radius: 18px;
+}
+
+.local-nav-backdrop {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.15), transparent);
+  border-radius: 24px;
+}
+
+.destination-pill-default {
+  background: rgba(10, 12, 25, 0.70);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  transition: all 180ms ease;
+}
+
+.destination-pill-default:hover {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.85), rgba(236, 72, 153, 0.80), rgba(249, 115, 22, 0.75));
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.30);
+  color: #FFFFFF;
+}
+
+.destination-pill-active {
+  background: linear-gradient(135deg, #7C3AED, #EC4899, #F97316);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  transform: scale(1.02);
+}
+
+.category-pill-default {
+  background: rgba(5, 8, 18, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  transition: all 180ms ease;
+}
+
+.category-pill-default:hover {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.85), rgba(236, 72, 153, 0.80), rgba(249, 115, 22, 0.75));
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.30);
+  color: #FFFFFF;
+}
+
+.category-pill-active {
+  background: linear-gradient(135deg, #7C3AED, #EC4899, #F97316);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  transform: scale(1.02);
+}
+
+.high-contrast-heading {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.high-contrast-label {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+/* ==========================================================================
+   Reusable Gradient Borders & Glows
+   ========================================================================== */
+.gradient-border {
+  border: 1px solid transparent;
+  background: linear-gradient(rgba(18, 9, 31, 0.9), rgba(18, 9, 31, 0.9)) padding-box,
+              linear-gradient(135deg, rgba(139, 92, 246, 0.45), rgba(220, 38, 38, 0.25), rgba(234, 179, 8, 0.35)) border-box;
+}
+
+.gradient-border-violet {
+  border: 1px solid transparent;
+  background: linear-gradient(rgba(18, 9, 31, 0.9), rgba(18, 9, 31, 0.9)) padding-box,
+              linear-gradient(135deg, #7C3AED, #A855F7) border-box;
+}
+
+.gradient-border-gold {
+  border: 1px solid transparent;
+  background: linear-gradient(rgba(18, 9, 31, 0.9), rgba(18, 9, 31, 0.9)) padding-box,
+              linear-gradient(135deg, #FDE68A, #F59E0B) border-box;
+}
+
+.gradient-border-premium {
+  border: 1px solid transparent;
+  background: linear-gradient(rgba(18, 9, 31, 0.9), rgba(18, 9, 31, 0.9)) padding-box,
+              linear-gradient(135deg, #7C3AED 0%, #C026D3 30%, #DC2626 65%, #F59E0B 100%) border-box;
+}
+
+.gradient-violet {
+  background: linear-gradient(135deg, #6D28D9 0%, #7C3AED 50%, #A855F7 100%);
+}
+
+.gradient-red {
+  background: linear-gradient(135deg, #991B1B 0%, #EF4444 50%, #F97316 100%);
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, #FDE68A 0%, #FACC15 50%, #F59E0B 100%);
+}
+
+.gradient-premium {
+  background: linear-gradient(135deg, #7C3AED 0%, #C026D3 30%, #DC2626 65%, #F59E0B 100%);
+}
+
+.glow-violet {
+  box-shadow: 0 0 35px rgba(124, 58, 237, 0.22);
+}
+
+.glow-red {
+  box-shadow: 0 0 35px rgba(220, 38, 38, 0.18);
+}
+
+.glow-gold {
+  box-shadow: 0 0 35px rgba(234, 179, 8, 0.18);
+}
+
+.glow-premium {
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.18), 0 0 20px rgba(245, 158, 11, 0.15);
+}
+
+/* ==========================================================================
+   Custom Scrollbar
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.35);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(220, 38, 38, 0.5);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   Leaflet & OpenStreetMap Luxury Custom Theme Styling
+   ========================================================================== */
+.leaflet-container {
+  font-family: 'Manrope', system-ui, sans-serif !important;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: #f4f4f5;
+}
+
+.dark .leaflet-container {
+  background-color: #050505;
+}
+
+/* Dark mode tile invert/hue filter for OpenStreetMap: Luxury Deep Slate/Purple Hue */
+.dark .leaflet-tile-pane {
+  filter: brightness(0.68) invert(1) contrast(3.4) hue-rotate(245deg) saturate(0.5);
+}
+
+/* Custom Leaflet Pin Styling */
+.category-map-pin {
+  background: transparent;
+  border: none;
+}
+
+.category-pin-wrapper {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+.category-pin-wrapper:hover {
+  transform: scale(1.18) translateY(-4px);
+  z-index: 9999 !important;
+}
+
+/* Custom Glassmorphic Luxury Popups */
+.leaflet-popup-content-wrapper {
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(226, 232, 240, 0.9) !important;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.06) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.dark .leaflet-popup-content-wrapper {
+  background: rgba(8, 8, 12, 0.95) !important;
+  border: 1px solid rgba(245, 197, 66, 0.35) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+  color: #FFFFFF !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip-container {
+  display: none !important;
+}
+
+.leaflet-popup-close-button {
+  top: 8px !important;
+  right: 8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 9999px !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  color: #71717a !important;
+  padding: 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.dark .leaflet-popup-close-button {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #F5C542 !important;
+}
+
+.leaflet-popup-close-button:hover {
+  background: rgba(220, 38, 38, 0.25) !important;
+  color: #EF4444 !important;
+}
+
+/* ==========================================================================
+   Cinematic Travel Background Animations
+   ========================================================================== */
+@keyframes airplane-fly {
+  0% {
+    transform: translate3d(-15vw, 12vh, 0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.95;
+  }
+  92% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(115vw, -6vh, 0);
+    opacity: 0;
+  }
+}
+
+.animate-airplane-fly {
+  animation: airplane-fly 26s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes cloud-drift {
+  0% {
+    transform: translateX(-20%);
+  }
+  50% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+.animate-cloud-drift {
+  animation: cloud-drift 70s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes vehicle-ltr {
+  0% {
+    transform: translateX(-160px);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 160px));
+    opacity: 0;
+  }
+}
+
+.animate-vehicle-ltr {
+  animation: vehicle-ltr 12s linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes vehicle-rtl {
+  0% {
+    transform: translateX(160px);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(-100vw - 160px));
+    opacity: 0;
+  }
+}
+
+.animate-vehicle-rtl {
+  animation: vehicle-rtl 14s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* Jet Flight Trail Animation */
+@keyframes jet-trail {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scaleY(0.95);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scaleY(1.3);
+  }
+}
+
+.animate-jet-trail {
+  animation: jet-trail 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Ocean Wave Shimmer */
+@keyframes water-shimmer {
+  0% {
+    transform: translateX(-35%);
+  }
+  50% {
+    transform: translateX(35%);
+  }
+  100% {
+    transform: translateX(-35%);
+  }
+}
+
+.animate-water-shimmer {
+  animation: water-shimmer 12s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Shopping Mall Neon Pulse */
+@keyframes mall-glow {
+  0%, 100% {
+    opacity: 0.4;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.85;
+    filter: brightness(1.35);
+  }
+}
+
+.animate-mall-glow {
+  animation: mall-glow 4.5s ease-in-out infinite;
+  will-change: opacity, filter;
+}
+
+/* Window Twinkle */
+@keyframes window-twinkle {
+  0%, 100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-window-twinkle {
+  animation: window-twinkle 3.5s ease-in-out infinite;
+  will-change: opacity;
+}
+
+/* Cafe Table Steam Rise */
+@keyframes steam-rise {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-30px) scaleX(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-steam-rise {
+  animation: steam-rise 4.8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Flowing Road Light Streaks */
+@keyframes road-streak-ltr {
+  0% {
+    transform: translateX(-220px) skewX(-12deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  92% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(calc(100vw + 220px)) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+.animate-road-streak-ltr {
+  animation: road-streak-ltr 6.5s linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes road-streak-rtl {
+  0% {
+    transform: translateX(220px) skewX(12deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  92% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(calc(-100vw - 220px)) skewX(12deg);
+    opacity: 0;
+  }
+}
+
+.animate-road-streak-rtl {
+  animation: road-streak-rtl 7.5s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   Cinematic Travel Background Keyframes & Utilities
+   ========================================================================== */
+
+/* 1. Airplane Flight across Sky: LEFT TOP -> RIGHT TOP (20s linear infinite) */
+@keyframes airplaneFlight {
+  0% {
+    transform: translate(-15vw, 8vh) rotate(-8deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(110vw, -5vh) rotate(-8deg);
+    opacity: 0;
+  }
+}
+
+.animate-airplane-flight {
+  animation: airplaneFlight 20s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* 2. Transparent Cloud Layer Drift (60s linear infinite) */
+@keyframes cloudLayerDrift {
+  0% {
+    transform: translateX(-15%);
+  }
+  50% {
+    transform: translateX(15%);
+  }
+  100% {
+    transform: translateX(-15%);
+  }
+}
+
+.animate-cloud-drift-layer {
+  animation: cloudLayerDrift 60s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* 3. Ocean Water Shimmer across Bay (12s alternate) */
+@keyframes oceanWaterShimmer {
+  0% {
+    transform: translateX(-25%);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(25%);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateX(-25%);
+    opacity: 0.2;
+  }
+}
+
+.animate-ocean-shimmer {
+  animation: oceanWaterShimmer 12s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* 4. Highway Bus Road Curve Travel (12s linear infinite) */
+@keyframes busRoadTravel {
+  0% {
+    transform: translate3d(-12vw, 15px, 0) rotate(4deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.95;
+  }
+  45% {
+    transform: translate3d(45vw, -2px, 0) rotate(-1deg);
+    opacity: 0.95;
+  }
+  92% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(112vw, -18px, 0) rotate(3deg);
+    opacity: 0;
+  }
+}
+
+.animate-bus-road {
+  animation: busRoadTravel 12s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* 5. Moving Highway Cars (8s, 11s, 14s) */
+@keyframes carTravelLtr1 {
+  0% {
+    transform: translate3d(-10vw, 12px, 0) rotate(4deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.95;
+  }
+  92% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(110vw, -16px, 0) rotate(3deg);
+    opacity: 0;
+  }
+}
+
+@keyframes carTravelLtr2 {
+  0% {
+    transform: translate3d(-10vw, 16px, 0) rotate(4deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.95;
+  }
+  92% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(110vw, -12px, 0) rotate(3deg);
+    opacity: 0;
+  }
+}
+
+@keyframes carTravelRtl {
+  0% {
+    transform: translate3d(110vw, -15px, 0) rotate(-3deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.95;
+  }
+  92% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(-10vw, 14px, 0) rotate(-4deg);
+    opacity: 0;
+  }
+}
+
+.animate-car-1 {
+  animation: carTravelLtr1 8s linear infinite;
+  will-change: transform, opacity;
+}
+
+.animate-car-2 {
+  animation: carTravelLtr2 11s linear infinite;
+  animation-delay: 3.5s;
+  will-change: transform, opacity;
+}
+
+.animate-car-3 {
+  animation: carTravelRtl 14s linear infinite;
+  animation-delay: 7s;
+  will-change: transform, opacity;
+}
+
+/* 6. Cafe Table Steam Rise (4s infinite, bottom -> top, opacity 0 -> 0.5 -> 0) */
+@keyframes steamRise {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-32px) scaleX(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-cafe-steam {
+  animation: steamRise 4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* 7. Cafe Warm Lantern Pulsing */
+@keyframes cafeWarmPulse {
+  0%, 100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.animate-cafe-warm {
+  animation: cafeWarmPulse 3.8s ease-in-out infinite;
+  will-change: opacity;
+}
+
+/* 8. Shopping Mall Purple/Gold Neon Glow (4-6s infinite, opacity 0.7 -> 1 -> 0.8) */
+@keyframes shoppingMallPulse {
+  0%, 100% {
+    opacity: 0.7;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.25);
+  }
+  80% {
+    opacity: 0.8;
+  }
+}
+
+.animate-mall-lighting {
+  animation: shoppingMallPulse 5s ease-in-out infinite;
+  will-change: opacity, filter;
+}
+
+/* 9. City Skyline Window Flickers (opacity 0.6 -> 1 -> 0.7) */
+@keyframes cityWindowFlicker {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.7;
+  }
+}
+
+.animate-city-window {
+  animation: cityWindowFlicker 4s ease-in-out infinite;
+  will-change: opacity;
+}
+
+/* 10. Flowing Road Light Streaks */
+@keyframes road-streak-ltr {
+  0% {
+    transform: translateX(-220px) skewX(-12deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  92% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(calc(100vw + 220px)) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+.animate-road-streak-ltr {
+  animation: road-streak-ltr 6.5s linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes road-streak-rtl {
+  0% {
+    transform: translateX(220px) skewX(12deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  92% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(calc(-100vw - 220px)) skewX(12deg);
+    opacity: 0;
+  }
+}
+
+.animate-road-streak-rtl {
+  animation: road-streak-rtl 7.5s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* 11. Cinematic Hero Glass Surface */
+.cinematic-hero-glass {
+  background: rgba(5, 5, 12, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* 12. Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-airplane-flight,
+  .animate-cloud-drift-layer,
+  .animate-ocean-shimmer,
+  .animate-bus-road,
+  .animate-car-1,
+  .animate-car-2,
+  .animate-car-3,
+  .animate-cafe-steam,
+  .animate-cafe-warm,
+  .animate-mall-lighting,
+  .animate-city-window,
+  .animate-road-streak-ltr,
+  .animate-road-streak-rtl {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+
